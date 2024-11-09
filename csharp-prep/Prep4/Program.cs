@@ -53,7 +53,7 @@ class Program
             Console.WriteLine("The largest number is: " + max);
         }
         else
-        {
+        { 
             Console.WriteLine("No numbers were entered.");
         }
 
