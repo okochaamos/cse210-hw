@@ -24,10 +24,11 @@ class Program
                 Console.WriteLine("Invalid input. Please enter a valid number.");
                 continue; // Skip the rest of the loop and ask for input again
             }
-
+            
+            if (myGuess == secretNumber)
             
             {
-                Console.Wif (myGuess == secretNumber)riteLine("Congratulations, you guessed it!");
+                Console.WriteLine("Congratulations, you guessed it!");
             }
             else if (myGuess > secretNumber)
             {
