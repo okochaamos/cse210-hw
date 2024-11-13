@@ -19,5 +19,18 @@ class Program
         Job2._endYear = 2024;
 
         Job2.DisplayJobDetails();
+
+
+        Resume resume = new Resume();
+        resume._personName = "Amos Okocha";
+
+        // Add the jobs to the resume
+        resume._jobs.Add(Job1);
+        resume._jobs.Add(Job2);
+
+        // Display the resume details
+        resume.Display();
+
+        
     }
 }

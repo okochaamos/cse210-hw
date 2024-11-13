@@ -8,6 +8,6 @@ public class Job
 
     public void DisplayJobDetails()
     {
-        Console.WriteLine($"Job Title : {_jobTitle} ({_company}) {_startYear} - {_endYear}");
+        Console.WriteLine($"{_jobTitle} ({_company}) {_startYear} - {_endYear}");
     }
 }
