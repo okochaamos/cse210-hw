@@ -4,33 +4,63 @@ class Program
 {
     static void Main(string[] args)
     {
-        Job  Job1 = new Job();
-        Job1._company = "Microsoft";
-        Job1._jobTitle = "Software Engineer";
-        Job1._startYear = 2015;
-        Job1._endYear = 2019;
+        Journal journal = new Journal();
+        PromptGenerator promptGenerator = new PromptGenerator();
 
-        Job1.DisplayJobDetails();
-    
-        Job  Job2 = new Job();
-        Job2._company = "Apple";
-        Job2._jobTitle = "Manager";
-        Job2._startYear = 2019;
-        Job2._endYear = 2024;
+        while (true)
+        {
+            Console.WriteLine("\nPlease select one of the following choices:");
+            Console.WriteLine("1. Write");
+            Console.WriteLine("2. Display");
+            Console.WriteLine("3. Load");
+            Console.WriteLine("4. Save");
+            Console.WriteLine("5. Quit");
 
-        Job2.DisplayJobDetails();
+            Console.Write("What would you like to do? ");
+            string choice = Console.ReadLine();
 
+            switch (choice)
+            {
+                case "1":
+                    string prompt = promptGenerator.GetRandomPrompt();
+                    Console.WriteLine($"Prompt: {prompt}");
+                    Console.Write("Your response: ");
+                    string response = Console.ReadLine();
 
-        Resume resume = new Resume();
-        resume._personName = "Amos Okocha";
+                    Entry entry = new Entry
+                    {
+                        Date = DateTime.Now.ToString("yyyy-MM-dd"),
+                        PromptText = prompt,
+                        EntryText = response
+                    };
 
-        // Add the jobs to the resume
-        resume._jobs.Add(Job1);
-        resume._jobs.Add(Job2);
+                    journal.AddEntry(entry);
+                    break;
 
-        // Display the resume details
-        resume.Display();
+                case "2":
+                    journal.DisplayAll();
+                    break;
 
-        
+                case "3":
+                    Console.Write("Enter filename to load: ");
+                    string loadFile = Console.ReadLine();
+                    journal.LoadFromFile(loadFile);
+                    break;
+
+                case "4":
+                    Console.Write("Enter filename to save: ");
+                    string saveFile = Console.ReadLine();
+                    journal.SaveToFile(saveFile);
+                    break;
+
+                case "5":
+                    Console.WriteLine("Goodbye!");
+                    return;
+
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    break;
+            }
+        }
     }
 }
