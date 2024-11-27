@@ -47,7 +47,7 @@ public class Journal
 
             foreach (string line in lines)
             {
-                string[] parts = line.Split("~|~");
+                string[] parts = line.Split("~|~");/////////////////////////////////////////////////
                 if (parts.Length == 3)
                 {
                     Entry entry = new Entry

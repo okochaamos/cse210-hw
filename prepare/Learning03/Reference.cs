@@ -3,7 +3,7 @@ public class Reference
     private string _book;
     private int _chapter;
     private int _startVerse;
-    private int? _endVerse;
+    private int? _endVerse; // Optional for verse ranges
 
     public Reference(string book, int chapter, int startVerse, int? endVerse = null)
     {
@@ -15,10 +15,8 @@ public class Reference
 
     public string GetDisplayText()
     {
-        if (_endVerse.HasValue)
-        {
-            return $"{_book} {_chapter}:{_startVerse}-{_endVerse.Value}";
-        }
-        return $"{_book} {_chapter}:{_startVerse}";
+        return _endVerse.HasValue
+            ? $"{_book} {_chapter}:{_startVerse}-{_endVerse}"
+            : $"{_book} {_chapter}:{_startVerse}";
     }
 }
