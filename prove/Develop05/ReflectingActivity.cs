@@ -6,7 +6,7 @@ public class ReflectingActivity : Activity
     // Constructor
     public ReflectingActivity() : base("Reflecting", "This activity will help you reflect on times when you showed strength and resilience.", 0)
     {
-        _prompts = new List<string>() 
+        _prompts = new List<string>()  
         { 
             "Think of a time when you stood up for someone.",
             "Think of a time when you overcame a challenge.",
